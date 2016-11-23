@@ -7,11 +7,11 @@ services:
             - "80:80"
         volumes:
             - ./html:/usr/share/nginx/html
-        links:
-            - mariadb:db
-    mariadb:
-        image: paintedfox/mariadb
-        environment:
-            - USER="user"
-            - PASS="password"
+#        links:
+#            - mariadb:db
+#    mariadb:
+#        image: paintedfox/mariadb
+#        environment:
+#            - USER="user"
+#            - PASS="password"
 
