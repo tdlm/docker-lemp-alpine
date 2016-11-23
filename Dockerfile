@@ -1,3 +1,6 @@
+# Based on https://github.com/ideatosrl/docker-library/blob/master/alpine-lemp/Dockerfile
+# which is maintained by: Paolo Tonin <pt@ideato.it> Alessandro Mazzoli <am@ideato.it>
+
 # Set the base image to Alpine
 FROM nginx:stable-alpine
 
@@ -30,6 +33,7 @@ RUN apk add --update \
             php5-fpm \ 
             supervisor && rm -rf /var/cache/apk/*
 
-#USER nginx
 CMD ["nginx", "-g", "daemon off;"]
 
+ADD configuration/nginx.conf /etc/nginx/conf.d/default.conf
+ADD configuration/php-fpm.conf /etc/php5/php-fpm.conf
