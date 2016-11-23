@@ -1,0 +1,17 @@
+version: '2'
+services:
+    web:
+        image: tdlm/alpine-lemp
+        build: .
+        ports:
+            - "80:80"
+        volumes:
+            - .:/html
+        links:
+            - mariadb:db
+    mariadb:
+        image: paintedfox/mariadb
+        environment:
+            - USER="user"
+            - PASS="password"
+
